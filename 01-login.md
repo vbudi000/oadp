@@ -17,7 +17,7 @@ Perform the following actions:
 3. Enter the user and password for OpenShift.
 
 4. From the console, make sure that both OpenShift Data Foundation and OpenShift API for Data Protection are both installed. Go to **Operators -> Installed Operators**. With the Project showing `All projects` - you should be able to see the OADP Operator and OpenShift Data Foundation there. <br/>
-![images/01-01-operators.png](Installed Operators)
+![Installed Operators](images/01-01-operators.png)
 
     Note that the OADP is installed in the `openshift-adp` namespace and ODF is installed in the `openshift-storage` namespace.
 
@@ -27,10 +27,10 @@ Perform the following actions:
     - velero: see [https://github.com/vmware-tanzu/velero/releases](https://github.com/vmware-tanzu/velero/releases)
     - git: see [https://git-scm.com/downloads](https://git-scm.com/downloads)
 
-5. Go to yout login drop down on the top right corner select **Copy Login Command**; In the new window, click `Display Token` and copy the `oc login` command with the token. <br/> ![images/01-02-login-token.png](Login token)
+5. Go to yout login drop down on the top right corner select **Copy Login Command**; In the new window, click `Display Token` and copy the `oc login` command with the token. <br/> ![Login token](images/01-02-login-token.png)
 
 6. Open a command line window where you have the `oc` command and paste the login command. 
-<br/>![images/01-03-cli-login.png](CLI login)
+<br/>![CLI login](images/01-03-cli-login.png)
 
 8. Get the necessary files using GIT:
 
