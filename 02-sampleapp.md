@@ -1,7 +1,7 @@
 # Deploy sample application
 
 The sample application is a simple nginx Web server. The application structure is shown here:
-![images/02-01-sampleapp.png](Sample app)
+![Sample App](images/02-01-sampleapp.png)
 
 1. Deploy sample app, using the CLI:
 

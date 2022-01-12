@@ -4,35 +4,31 @@ The following information are needed:
 
 - OpenShift Console URL: `https://console-openshift-console.apps.vbudi-001.cp.fyre.ibm.com`
 - OpenShift API URL: `https://api.vbudi-001.cp.fyre.ibm.com:6443`
-- Login method: `htpasswd`
-- OpenShift user: `student`
-- OpenShift password: `passw0rd`
+- OpenShift user: `studentNN`
+- OpenShift password: `passNN`
 
 Perform the following actions:
 
-1. Open a Web Browser to the OpenShift console URL. Accept the certificate errors for both `console-openshift-console` and `oauth-openshift` URLs. 
+1. Open a Web Browser to the OpenShift console URL. Accept the certificate errors for both `console-openshift-console` and `oauth-openshift` URLs. You will arrive in the OpenShift login screen: <br/> ![Login screen](images/01-01-login.png)
 
-2. Login using the login method, click the button representing the method.
+2. Enter the user and password for OpenShift, the user should be in the format of `studentNN` and the password is `passNN` where NN is your 2 digits qualifier (01-35).
 
-3. Enter the user and password for OpenShift.
+3. From the console, you are in the Developer view. click **Skip tour**.<br/>![Skip tour](images/01-02-skiptour.png) 
 
-4. From the console, make sure that both OpenShift Data Foundation and OpenShift API for Data Protection are both installed. Go to **Operators -> Installed Operators**. With the Project showing `All projects` - you should be able to see the OADP Operator and OpenShift Data Foundation there. <br/>
-![Installed Operators](images/01-01-operators.png)
-
-    Note that the OADP is installed in the `openshift-adp` namespace and ODF is installed in the `openshift-storage` namespace.
-
-7. Verify all the other required CLIs from your system:
+4. Verify all the other required CLIs from your system:
 
     - oc: see [https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html)
     - velero: see [https://github.com/vmware-tanzu/velero/releases](https://github.com/vmware-tanzu/velero/releases)
     - git: see [https://git-scm.com/downloads](https://git-scm.com/downloads)
 
-5. Go to yout login drop down on the top right corner select **Copy Login Command**; In the new window, click `Display Token` and copy the `oc login` command with the token. <br/> ![Login token](images/01-02-login-token.png)
+5. From your login drop down on the top right corner select **Copy Login Command**. <br/>![login](images/01-03-logincmd.png)
 
-6. Open a command line window where you have the `oc` command and paste the login command. 
-<br/>![CLI login](images/01-03-cli-login.png)
+6. In the new tab, click `Display Token` and copy the `oc login` command with the token. <br/> ![Login token](images/01-04-login-token.png)
 
-8. Get the necessary files using GIT:
+7. Open a command line window and paste the login command. 
+<br/>![CLI login](images/01-05-cli-login.png)
+
+8. Run the following commands to retrive the files for this exercise from GIT:
 
     ```
     git clone https://github.com/vbudi000/oadp
