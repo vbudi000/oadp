@@ -1,0 +1,137 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: studentrole
+  namespace: openshift-adp
+rules:
+  - verbs:
+    - get
+    - list
+    - create
+    apiGroups:
+    - objectbucket.io
+    resources:
+    - objectbucketclaim
+    - objectbucket
+  - verbs:
+    - '*'
+    apiGroups:
+    - velero.io
+    resources:
+    - '*'
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: studentrolebinding
+  namespace: openshift-adp
+subjects:
+  - kind: User
+    name: student01
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student02
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student03
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student04
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student05
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student06
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student07
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student08
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student09
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student10
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student11
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student12
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student13
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student14
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student15
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student16
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student17
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student18
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student19
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student20
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student21
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student22
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student23
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student24
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student25
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student26
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student27
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student28
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student29
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student30
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student31
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student32
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student33
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student34
+    apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: student35
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: studentrole

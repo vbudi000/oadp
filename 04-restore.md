@@ -18,8 +18,10 @@ Now that you have a backup created, you will test the restore functionality.
 
     ```
     velero restore create --from-backup studentNN-nginx-backup -n openshift-adp
+    velero restore describe studentNN-nginx-backup-XXXXXXXX -n openshift-adp --insecure-skip-tls-verify
     ```
-
+    ![Restore](images/04-01-restore.png)
+    
 4. Check that the objects are restored:
 
     ```
