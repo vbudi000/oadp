@@ -11,13 +11,16 @@
 
 3. Setup OADP: https://github.ibm.com/vbudi/ocs-on-fyre/blob/master/oadp-on-fyre.sh
 
+4. Delete the default kubeadmin:
 
-4. 
+    ```
+    oc delete secret kubeadmin -n kube-system
+    ```
 
-odf-on-fyre.sh 
+4. Setup users
 
-Setup users
+    ```
+    oc create secret generic htpasswd -n openshift-config --from-file htpasswd=htpasswd.file --dry-run -o yaml | oc replace -f -
 
-oc create secret generic htpasswd -n openshift-config --from-file htpasswd=htpasswd.file --dry-run -o yaml | oc replace -f -
-
-user 
+    oc create -f studentrole.yaml
+    ```

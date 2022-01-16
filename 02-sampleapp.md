@@ -3,7 +3,7 @@
 The sample application is a simple nginx Web server. The application structure is shown here:
 ![Sample App](images/02-01-sampleapp.png)
 
-1. The source YAML definition for the sample application has been downloaded from GIT. You must make a modification as you are using a shared environment.
+1. The source YAML definition for the sample application must be downloaded from [https://github.com/vbudi000/oadp/blob/main/nginx-deployment.yaml](https://github.com/vbudi000/oadp/blob/main/nginx-deployment.yaml). You must make a modification as you are using a shared environment.
 
 2. Edit the file `nginx-deployment.yaml` and modify all `nginx-studentNN` with the corresponding 2 digits qualifier. Save the file as `nginx-deploymentNN.yaml`. 
 

@@ -19,7 +19,6 @@ Perform the following actions:
 
     - oc: see [https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html](https://docs.openshift.com/container-platform/4.7/cli_reference/openshift_cli/getting-started-cli.html)
     - velero: see [https://github.com/vmware-tanzu/velero/releases](https://github.com/vmware-tanzu/velero/releases)
-    - git: see [https://git-scm.com/downloads](https://git-scm.com/downloads)
 
 5. From your login drop down on the top right corner select **Copy Login Command**. <br/>![login](images/01-03-logincmd.png)
 
@@ -27,13 +26,6 @@ Perform the following actions:
 
 7. Open a command line window and paste the login command. 
 <br/>![CLI login](images/01-05-cli-login.png)
-
-8. Run the following commands to retrive the files for this exercise from GIT:
-
-    ```
-    git clone https://github.com/vbudi000/oadp
-    cd oadp
-    ```
 
 
 
