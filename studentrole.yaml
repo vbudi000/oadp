@@ -11,8 +11,8 @@ rules:
     apiGroups:
     - objectbucket.io
     resources:
-    - objectbucketclaim
-    - objectbucket
+    - objectbucketclaims
+    - objectbuckets
   - verbs:
     - '*'
     apiGroups:

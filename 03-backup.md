@@ -56,7 +56,7 @@ Now that you have a working application, lets setup the backup environment:
 3. Backup the application namespace PVC to be restored later
  
     ```
-    velero backup create studentNN-nginx-backup --include-namespaces nginx-studentNN --storage-location backuplocationNN -n openshift-adp
+    velero backup create studentNN-nginx-backup --include-namespaces nginx-studentNN --storage-location backuplocationNN --volume-snapshot-locations backuplocation01 -n openshift-adp
     velero backup describe studentNN-nginx-backup -n openshift-adp --insecure-skip-tls-verify
     ```
     ![run backup](images/03-02-runbackup.png)
@@ -65,7 +65,7 @@ Now that you have a working application, lets setup the backup environment:
 
     - Go to the noobaa ui at https://noobaa-mgmt-openshift-storage.apps.CLUSTERNAME.cp.fyre.ibm.com/
     - Login with your OpenShift credential (it has been given access)
-    - Click *Allow selected privileges*
+    - Click *Allow selected permissions*
     - Select **Bucket > bucketNN > Objects** (tab) check what the backup result are. 
 
     ![Noobaa UI](images/03-03-noobaa.png)
