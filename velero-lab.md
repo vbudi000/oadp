@@ -12,7 +12,7 @@ This repository contains the steps needed to demonstrate backup and restore usin
 
 The following information are needed:
 
-- Cluster name: `csm-onboarding`
+- Cluster name: `csm-001`
 - Student qualifier: `NN`
 - OpenShift Console URL: `https://console-openshift-console.apps.${clustername}.cp.fyre.ibm.com`
 - OpenShift API URL: `https://api.${clustername}.cp.fyre.ibm.com:6443`
@@ -159,7 +159,7 @@ Now that you have a working application, lets setup the backup environment:
 
     Make sure that you have the Restic backup completed as shown at the bottom of the output.
 
-4. Verify the backup result - 
+4. Verify the backup result:
 
     - Go to the noobaa ui at `https://noobaa-mgmt-openshift-storage.apps.<CLUSTERNAME>.cp.fyre.ibm.com/`    
     - Login with your OpenShift credential (it has been given access)
@@ -168,7 +168,9 @@ Now that you have a working application, lets setup the backup environment:
 
     ![Noobaa UI](images/03-03-noobaa.png)
 
-    what directory structure is created? _________________________________________________
+    what directory structures are created? 
+    - _________________________________________________
+    - _________________________________________________
 
 
 ## Restore Application
