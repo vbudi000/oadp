@@ -141,15 +141,6 @@ Now that you have a working application, lets setup the backup environment:
         provider: aws
     ```
 
-3. Use the CLI environment to modify the deployment to add annotation to the pod so veleor will backup the Physical Volume Claim. <br/> Run the command:
-
-    ```
-    oc patch deployment nginx -n nginx-studentNN  -p '{"spec":{"template":{"metadata":{"annotations":{"backup.velero.io/backup-volumes":"nginx-data"}}}}}'
-    ```
-
-    The command will add an annotation on the pod level so velero will backup the volume with the name of `nginx-data`. You must wait until the changes is completed; you can use the command `oc get pod -n nginx-studentNN` to monitor how the pod getting recreated; the changes is completed when there is only a single `Running` pod.
-
-
 3. Use the CLI environment to check your velero resources; note that all velero resources are in `openshift-adp` namespace:
 
     ```
@@ -212,5 +203,5 @@ Now that you have a backup created, you will test the restore functionality.
 5. Check using a Web browser to both the main page and the test/data.html that you created. Both should be successful. 
 
     ![nginx page](images/02-04-nginx.png)
-    
+
     ![data page](images/02-07-datafile.png)
