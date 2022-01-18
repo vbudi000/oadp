@@ -113,7 +113,8 @@ Now that you have a working application, lets setup the backup environment:
       bucketName: bucketNN
       storageClassName: openshift-storage.noobaa.io
     ```
-    **Note** here we hardcode the bucket name, which is not a recommended way as name clashes may happen
+
+    **Note** Wait until the status of the Object Bucket Claim is `Bound` before proceeding.
 
 2. Create a Backup Storage Location in velero to use the noobaa bucket you created before, a BackupStorageLocation defines a backup target for velero to store the backup. You can use the ![**+**](images/plus.png) button and paste the following content (remember to replace all the `NN` to your student qualifier and the `CLUSTERNAME` to the actual cluster name):
 
@@ -140,6 +141,15 @@ Now that you have a working application, lets setup the backup environment:
         provider: aws
     ```
 
+3. Use the CLI environment to modify the deployment to add annotation to the pod so veleor will backup the Physical Volume Claim. <br/> Run the command:
+
+    ```
+    oc patch deployment nginx -n nginx-studentNN  -p '{"spec":{"template":{"metadata":{"annotations":{"backup.velero.io/backup-volumes":"nginx-data"}}}}}'
+    ```
+
+    The command will add an annotation on the pod level so velero will backup the volume with the name of `nginx-data`. You must wait until the changes is completed; you can use the command `oc get pod -n nginx-studentNN` to monitor how the pod getting recreated; the changes is completed when there is only a single `Running` pod.
+
+
 3. Use the CLI environment to check your velero resources; note that all velero resources are in `openshift-adp` namespace:
 
     ```
@@ -154,7 +164,7 @@ Now that you have a working application, lets setup the backup environment:
     velero backup create studentNN-nginx-backup --include-namespaces nginx-studentNN --storage-location backuplocationNN -n openshift-adp
     velero backup describe studentNN-nginx-backup -n openshift-adp --details --insecure-skip-tls-verify
     ```
-    ![run backup](images/03-02-runbackup.png)
+    ![run backup](images/03-02-01-runbackup.png)
 
     Make sure that you have the Restic backup completed as shown at the bottom of the output.
 
@@ -167,37 +177,40 @@ Now that you have a working application, lets setup the backup environment:
 
     ![Noobaa UI](images/03-03-noobaa.png)
 
-        what directory structure is created? _________________________________________________
+    what directory structure is created? _________________________________________________
 
 
 ## Restore Application
 
 Now that you have a backup created, you will test the restore functionality. 
 
-1. Delete the namespace that hosted your sample application:
+1. Delete the project that hosted your sample application, from the OpenShift Web Console, select the **Project** navigation menu, and select **Actions** > **Delete Project** and confirm by entering the project name `nginx-studentNN`. <br/> 
+![delete project](images/04-02-deleteProject.png)
 
-    ```
-    oc delete project nginx-studentNN
-    ```
+2. The project screen will be empty. <br/>
+![emptyproject list](images/04-03-noproject.png]
 
-2. Verify that the objects are deleted
-
-    ```
-    oc get all -n nginx-studentNN
-    ```
-
-3. Initiate velero restore:
+3. From the CLI environment, initiate velero restore:
 
     ```
     velero restore create --from-backup studentNN-nginx-backup -n openshift-adp
+    ```
+
+    You will notice that the project list in the Web console will be populated. 
+
+4. You can then check the restore status, based on the restore object shown in the previous command:
+
+    ```
     velero restore describe studentNN-nginx-backup-XXXXXXXX -n openshift-adp --insecure-skip-tls-verify
     ```
-    ![Restore](images/04-01-restore.png)
+    ![Restore](images/04-04-velero-restore.png)
     
-4. Check that the objects are restored:
+4. Check that the objects are restored, look into the Topology view of the Web console.
 
-    ```
-    oc get all -n nginx-studentNN
-    ```
+    ![All resources](images/02-03-01-topology.png)
 
-5. Check using a Web browser to both the main page and the test/data.html that you created. Both should be successful.
+5. Check using a Web browser to both the main page and the test/data.html that you created. Both should be successful. 
+
+    ![nginx page](images/02-04-nginx.png)
+    
+    ![data page](images/02-07-datafile.png)
