@@ -23,9 +23,9 @@ spec:
     matchLabels:
       app: nginx
   template:
-    annotations:
-      backup.velero.io/backup-volumes: nginx-data
     metadata:
+      annotations:
+        backup.velero.io/backup-volumes: nginx-data
       labels:
         app: nginx
     spec:
