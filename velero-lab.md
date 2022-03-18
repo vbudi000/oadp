@@ -12,7 +12,7 @@ This repository contains the steps needed to demonstrate backup and restore usin
 
 The following information are needed:
 
-- Cluster name: `csm-001`
+- Cluster name: `csm-onboarding`
 - Student qualifier: `NN`
 - OpenShift Console URL: `https://console-openshift-console.apps.${clustername}.cp.fyre.ibm.com`
 - OpenShift API URL: `https://api.${clustername}.cp.fyre.ibm.com:6443`
